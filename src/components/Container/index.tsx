@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import styles from "./index.module.css";
 
-export default function Container(props) {
+export default function Container({ children }: { children: ReactNode }) {
   return (
     <div className={styles.container}>
-      { props.children }
+      { children }
     </div>
   );
 }

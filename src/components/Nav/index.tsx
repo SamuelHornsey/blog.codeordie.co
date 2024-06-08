@@ -48,7 +48,7 @@ export default function Nav() {
     return () => {
       window.removeEventListener('click', closeMenu);
     }
-  }, [menu])
+  }, [menu, ref])
 
   const toggleMenu = () => {
     setMenu(!menu);
