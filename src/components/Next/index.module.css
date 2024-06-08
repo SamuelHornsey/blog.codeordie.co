@@ -1,0 +1,45 @@
+.next {
+  padding: 15px;
+}
+
+.text {
+  font-size: 64px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+  margin: 0px;
+  padding: 0px;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+.to {}
+
+.view {
+  color: #80ff61;
+}
+
+.more {
+  font-weight: 300;
+}
+
+.posts {
+  color: #f00;
+}
+
+.click {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.here {
+  color: #2a25ff;
+  text-decoration: underline;
+}

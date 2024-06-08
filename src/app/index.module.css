@@ -1,0 +1,33 @@
+.headline {
+  font-size: 30px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+  padding: 0px;
+  margin: 40px 0px;
+}
+
+.highlight {
+  color: #f00;
+  font-style: italic;
+}
+
+.bold {
+  font-weight: normal;
+  color: #4200ff;
+}
+
+.hero {
+  border-bottom: 2px solid #000;
+  margin-bottom: 28px;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-bottom: 55px;
+}

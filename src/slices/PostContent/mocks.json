@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Occaecat magna quis ipsum. Magna qui velit nostrud aliqua est ex esse nulla qui Lorem fugiat non aliqua sit aliquip."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
