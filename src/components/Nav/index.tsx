@@ -1,58 +1,26 @@
-'use client';
-
-import React, { useState, useEffect, createRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { createClient } from "@/prismicio";
 import Container from "@/components/Container";
+import Hamburger from "../Hamburger";
 
 import styles from "./index.module.css";
 
 import exodia from "./exodia.gif";
-import hamburger from "./hamburger.png";
 
-function Menu() {
-  return (
-    <div className={styles.menu}>
-      <ul className={styles.list}>
-        <li className={styles.element}>
-          <Link className={styles.link} href="/">Home</Link>
-        </li>
-        <li className={styles.element}>
-          <Link className={styles.link} href="/about">About</Link>
-        </li>
-        <li className={styles.element}>
-          <Link className={styles.link} href="/">Latest</Link>
-        </li>
-        <li className={styles.element}>
-          <Link className={styles.link} href="https://github.com/SamuelHornsey/blog.codeordie.co" target="_blank">Github</Link>
-        </li>
-      </ul>
-    </div>
-  )
-}
 
-export default function Nav() {
-  const [menu, setMenu] = useState(false);
-  const ref = createRef<HTMLImageElement>();
-
-  useEffect(() => {
-    const closeMenu = (e: MouseEvent) => {
-      if (e.target !== ref.current) {
-        setMenu(false);
-      }
-    }
-
-    window.addEventListener('click', closeMenu);
-
-    return () => {
-      window.removeEventListener('click', closeMenu);
-    }
-  }, [menu, ref])
-
-  const toggleMenu = () => {
-    setMenu(!menu);
-  }
+export default async function Nav() {
+  const client = createClient();
+  const posts = await client.getAllByType("post", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc"
+    },
+    limit: 1
+  });
+  const latest = posts[0];
 
   return (
     <nav className={styles.nav}>
@@ -65,8 +33,8 @@ export default function Nav() {
             <h3 className={styles.heading}>Code Or</h3>
             <h3 className={styles.heading}><span className={styles.strike}>Die</span> Bloggggggg.</h3>
           </div>
-          <Image ref={ref} onClick={toggleMenu} className={styles.hamburger} src={hamburger} alt="Hamburger Menu" />
-          {menu ? <Menu /> : <></>}
+
+          <Hamburger latest={latest} />
         </div>
       </Container>
     </nav>

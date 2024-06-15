@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { SliceZone, PrismicRichText, JSXMapSerializer } from "@prismicio/react";
+import { PrismicRichText, JSXMapSerializer } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
@@ -44,11 +44,18 @@ const components: JSXMapSerializer = {
   }
 };
 
+
 export default async function Index() {
   // The client queries content from the Prismic API
   const client = createClient();
   const home = await client.getSingle("home");
-  const posts = await client.getAllByType("post");
+  const posts = await client.getAllByType("post", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc"
+    },
+    limit: 5
+  });
 
   return (
     <>

@@ -1,12 +1,24 @@
 import React from "react";
 
 import Link from "next/link";
+import { PrismicNextLink } from "@prismicio/next";
+import { createClient } from "@/prismicio";
 
 import Container from "../Container";
 
 import styles from "./index.module.css";
 
-export default function Footer() {
+export default async function Footer() {
+  const client = createClient();
+  const posts = await client.getAllByType("post", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc"
+    },
+    limit: 1
+  });
+  const latest = posts[0];
+
   return (
     <div className={styles.footer}>
       <Container>
@@ -21,7 +33,7 @@ export default function Footer() {
                 <Link className={styles.link} href="/about">About</Link>
               </li>
               <li className={styles.element}>
-                <Link className={styles.link} href="/">Latest</Link>
+                <PrismicNextLink className={styles.link} document={latest}>Latest</PrismicNextLink>
               </li>
               <li className={styles.element}>
                 <Link className={styles.link} href="https://github.com/SamuelHornsey/blog.codeordie.co" target="_blank">Github</Link>
