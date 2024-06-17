@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 
@@ -12,6 +13,12 @@ const robotoMono = Roboto_Mono({
   subsets: ["latin"],
   display: "swap"
 });
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico' // /public path
+  }
+};
 
 export default function RootLayout({
   children,

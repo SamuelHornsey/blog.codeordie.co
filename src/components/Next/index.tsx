@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import styles from "./index.module.css";
 
-export default function Next() {
+export default function Next({ onNext }: { onNext: Function }) {
   const [frame, setFrame] = useState(1);
 
   useEffect(() => {
@@ -23,8 +23,10 @@ export default function Next() {
     return () => clearInterval(interval);
   }, [frame])
 
+  const onClick = () => onNext();
+
   return (
-    <div className={styles.next}>
+    <div onClick={onClick} className={styles.next}>
       <h4 className={`${styles.text} ${styles.to} ${frame > 0 ? styles.show : ''}`}>TO</h4>
       <h4 className={`${styles.text} ${styles.view} ${frame > 1 ? styles.show : ''}`}>view</h4>
       <h4 className={`${styles.text} ${styles.more} ${frame > 2 ? styles.show : ''}`}>MORE</h4>
