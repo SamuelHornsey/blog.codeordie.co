@@ -16,7 +16,7 @@ const robotoMono = Roboto_Mono({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/favicon.ico' // /public path
+    icon: '/icon.png' // /public path
   }
 };
 
