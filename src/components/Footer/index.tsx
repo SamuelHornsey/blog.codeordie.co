@@ -30,7 +30,7 @@ export default async function Footer() {
                 <Link className={styles.link} href="/">Home</Link>
               </li>
               <li className={styles.element}>
-                <Link className={styles.link} href="/about">About</Link>
+                <Link className={styles.link} href="/archive">Archive</Link>
               </li>
               <li className={styles.element}>
                 <PrismicNextLink className={styles.link} document={latest}>Latest</PrismicNextLink>
@@ -42,7 +42,8 @@ export default async function Footer() {
           </div>
           <div className={styles.block}>
             <h4 className={`${styles.heading} ${styles.right}`}>Credits.</h4>
-            <p className={styles.content}>This has been the code or die blog. Developed by Samuel Hornsey. You can find my Github here or my Website here.</p>
+            <p className={styles.content}>This has been the code or die blog. Developed by Samuel Hornsey.
+              You can find my Github <Link href="https://github.com/SamuelHornsey/blog.codeordie.co" target="_blank">here</Link> or my Website <Link href="https://samuelhornsey.com" target="_blank">here</Link>.</p>
           </div>
         </div>
       </Container>

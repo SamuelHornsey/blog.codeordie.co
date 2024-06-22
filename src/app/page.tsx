@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { Suspense } from 'react'
 
 import { PrismicRichText, JSXMapSerializer } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
@@ -59,9 +58,7 @@ export default async function Index() {
       </Container>
       <Container>
         <div className={styles.posts}>
-          <Suspense>
-            <Posts />
-          </Suspense>
+          <Posts />
         </div>
       </Container>
     </>

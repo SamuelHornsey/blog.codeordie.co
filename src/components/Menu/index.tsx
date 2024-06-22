@@ -14,7 +14,7 @@ export default function Menu({ latest }: { latest: PostDocument }) {
           <Link className={styles.link} href="/">Home</Link>
         </li>
         <li className={styles.element}>
-          <Link className={styles.link} href="/about">About</Link>
+          <Link className={styles.link} href="/archive">Archive</Link>
         </li>
         <li className={styles.element}>
           <PrismicNextLink className={styles.link} document={latest}>Latest</PrismicNextLink>

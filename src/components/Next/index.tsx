@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation'
 
 import styles from "./index.module.css";
 
-export default function Next({ onNext }: { onNext: Function }) {
+export default function Next() {
+  const router = useRouter();
   const [frame, setFrame] = useState(1);
 
   useEffect(() => {
@@ -23,7 +25,9 @@ export default function Next({ onNext }: { onNext: Function }) {
     return () => clearInterval(interval);
   }, [frame])
 
-  const onClick = () => onNext();
+  const onClick = () => {
+    router.push('/archive');
+  }
 
   return (
     <div onClick={onClick} className={styles.next}>
